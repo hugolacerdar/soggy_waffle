@@ -3,6 +3,9 @@ defmodule SoggyWaffle.WeatherAPI.ResponseParserTest do
   alias SoggyWaffle.WeatherAPI.ResponseParser
   alias SoggyWaffle.Weather
 
+  @thunderstorm_ids {"thunderstorm", [200, 201, 202, 210, 211, 212, 221, 230, 231, 232]}
+  @drizzle_ids {"drizzle", [300, 301, 302, 310, 311, 312, 313, 314, 321]}
+  @rain_ids {"rain", [500, 501, 502, 503, 504, 511, 520, 521, 522, 531]}
 
   setup_all do
     response_as_string =
