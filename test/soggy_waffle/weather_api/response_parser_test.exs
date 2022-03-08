@@ -31,5 +31,20 @@ defmodule SoggyWaffle.WeatherAPI.ResponseParserTest do
       end
 
     end
+
+    for {condition, ids} <- [@thunderstorm_ids, @drizzle_ids, @rain_ids] do
+      test "success: recognizes #{condition} as a rainy condition" do
+        now_unix = DateTime.utc_now() |> DateTime.to_unix()
+
+        for id <- unquote(ids) do
+          record = %{"dt" => now_unix, "weather" => [%{"id" => id}]}
+
+          assert {:ok, [weather_struct]} =
+            ResponseParser.parse_response(%{"list" => [record]})
+
+          assert weather_struct.rain? == true
+        end
+      end
+    end
   end
 end
