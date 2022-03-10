@@ -65,5 +65,24 @@ defmodule SoggyWaffle.WeatherAPI.ResponseParserTest do
           "Expected weather id (#{id}) to NOT be a rain condition"
       end
     end
+
+    test "error: returns error if weather data is malformed" do
+      malformed_day = %{
+        "dt" => 1_574_359_200,
+        "weather" => [
+          %{
+            # the name "wrong_key" helps to make our test self-documenting
+            "wrong_key" => 1
+          }
+        ]
+      }
+
+      almost_correct_response = %{"list" => [malformed_day]}
+
+      assert {:error, :response_format_invalid} =
+        ResponseParser.parse_response(almost_correct_response)
+    end
+
+
   end
 end
