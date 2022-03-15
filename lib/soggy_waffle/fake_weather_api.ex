@@ -1,6 +1,6 @@
 defmodule SoggyWaffle.FakeWeatherAPI do
 
-  @behaviour SoggyWaffle.WeatherAPIBehaviour
+  @behaviour SoggyWaffle.WeatherAPI.Behaviour
   require Logger
 
   @impl true

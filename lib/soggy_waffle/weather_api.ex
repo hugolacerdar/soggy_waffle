@@ -8,7 +8,7 @@
 #---
 defmodule SoggyWaffle.WeatherAPI do
 
-  @behaviour SoggyWaffle.WeatherAPIBehaviour
+  @behaviour SoggyWaffle.WeatherAPI.Behaviour
 
   @impl true
   @spec get_forecast(String.t()) :: {:ok, map()} | {:error, reason :: term()}
