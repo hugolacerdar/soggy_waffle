@@ -3,6 +3,8 @@ defmodule SoggyWaffleTest do
   use ExUnit.Case
   import Mox
 
+  setup :verify_on_exit!
+
   describe "rain?/2" do
     test "success: gets forecasts, returns true for imminent rain" do
       expect(SoggyWaffle.WeatherAPIMock, :get_forecast, 1, fn city ->
@@ -21,8 +23,6 @@ defmodule SoggyWaffleTest do
       end)
 
       assert SoggyWaffle.rain?("Los Angeles", DateTime.utc_now())
-
-      verify!(SoggyWaffle.WeatherAPIMock)
     end
   end
 end
