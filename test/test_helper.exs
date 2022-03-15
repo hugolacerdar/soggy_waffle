@@ -6,4 +6,9 @@
 # We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/lmelixir for more book information.
 #---
+
 ExUnit.start()
+
+Mox.defmock(SoggyWaffle.WeatherAPIMock, for: SoggyWaffle.WeatherAPI.Behaviour)
+
+Application.put_env(:soggy_waffle, :weather_api_module, SoggyWaffle.WeatherAPIMock)
