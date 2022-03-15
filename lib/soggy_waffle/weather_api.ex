@@ -7,15 +7,16 @@
 # Visit http://www.pragmaticprogrammer.com/titles/lmelixir for more book information.
 #---
 defmodule SoggyWaffle.WeatherAPI do
+  @default_base_url "https://api.openweathermap.org"
 
   @behaviour SoggyWaffle.WeatherAPI.Behaviour
 
   @impl true
-  @spec get_forecast(String.t()) :: {:ok, map()} | {:error, reason :: term()}
-  def get_forecast(city) when is_binary(city) do
+  @spec get_forecast(String.t(), String.t()) :: {:ok, map()} | {:error, reason :: term()}
+  def get_forecast(city, base_url \\ @default_base_url) when is_binary(city) do
     app_id = "replace me"
     query_params = URI.encode_query(%{"q" => city, "APPID" => app_id})
-    url = "https://api.openweathermap.org/data/2.5/forecast?" <> query_params
+    url = base_url <> "/data/2.5/forecast?" <> query_params
 
     case HTTPoison.get(url) do
       {:ok,
