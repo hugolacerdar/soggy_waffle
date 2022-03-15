@@ -7,6 +7,10 @@
 # Visit http://www.pragmaticprogrammer.com/titles/lmelixir for more book information.
 #---
 defmodule SoggyWaffle.WeatherAPI do
+
+  @behaviour SoggyWaffle.WeatherAPIBehaviour
+
+  @impl true
   @spec get_forecast(String.t()) :: {:ok, map()} | {:error, reason :: term()}
   def get_forecast(city) when is_binary(city) do
     app_id = "replace me"
