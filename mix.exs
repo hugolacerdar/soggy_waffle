@@ -33,7 +33,8 @@ defmodule SoggyWaffle.MixProject do
       {:jason, "~> 1.1"},
       # test only
       {:exvcr, "~> 0.11.0", only: [:test]},
-      {:mox, ">= 0.0.0", only: [:test]}
+      {:mox, ">= 0.0.0", only: [:test]},
+      {:plug_cowboy, ">= 0.0.0", only: [:test]}
     ]
   end
 end
