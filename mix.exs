@@ -34,7 +34,7 @@ defmodule SoggyWaffle.MixProject do
       # test only
       {:exvcr, "~> 0.11.0", only: [:test]},
       {:mox, ">= 0.0.0", only: [:test]},
-      {:plug_cowboy, ">= 0.0.0", only: [:test]}
+      {:bypass, ">= 0.0.0", only: [:test]}
     ]
   end
 end
