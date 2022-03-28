@@ -34,7 +34,8 @@ defmodule SoggyWaffle.MixProject do
       # test only
       {:exvcr, "~> 0.11.0", only: [:test]},
       {:mox, ">= 0.0.0", only: [:test]},
-      {:bypass, ">= 0.0.0", only: [:test]}
+      {:bypass, ">= 0.0.0", only: [:test]},
+      {:dotenv_parser, "~> 2.0"}
     ]
   end
 end
