@@ -14,7 +14,7 @@ defmodule SoggyWaffle.WeatherAPI do
   @impl true
   @spec get_forecast(String.t(), String.t()) :: {:ok, map()} | {:error, reason :: term()}
   def get_forecast(city, base_url \\ @default_base_url) when is_binary(city) do
-    app_id = "MY_APP_ID"
+    app_id = Application.get_env(:soggy_waffle, :app_key)
     query_params = URI.encode_query(%{"q" => city, "APPID" => app_id})
     url = base_url <> "/data/2.5/forecast?" <> query_params
 
