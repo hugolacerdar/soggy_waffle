@@ -10,5 +10,3 @@
 ExUnit.start()
 
 Mox.defmock(SoggyWaffle.WeatherAPIMock, for: SoggyWaffle.WeatherAPI.Behaviour)
-
-Application.put_env(:soggy_waffle, :weather_api_module, SoggyWaffle.WeatherAPIMock)
