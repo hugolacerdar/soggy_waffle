@@ -24,3 +24,6 @@ soggy_waffle-*.tar
 
 # Ignore .env file
 .env
+
+# Ignore exvcr cassettes
+fixture/vcr_cassettes
