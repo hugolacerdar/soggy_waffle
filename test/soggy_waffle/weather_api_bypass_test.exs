@@ -8,7 +8,7 @@ defmodule SoggyWaffle.WeatherAPITest.Bypass do
 
   test "get_forecast/1 hits GET /data/2.5/forecast", %{bypass: bypass} do
     query = "Los Angeles"
-    app_id = "MY_APP_ID"
+
     test_server_url = "http://localhost:4040"
 
     forecast_data = %{
@@ -24,7 +24,6 @@ defmodule SoggyWaffle.WeatherAPITest.Bypass do
       conn = Plug.Conn.fetch_query_params(conn)
 
       assert conn.query_params["q"] == query
-      assert conn.query_params["APPID"] == app_id
 
       conn
       |> Plug.Conn.put_resp_content_type("application/json")
